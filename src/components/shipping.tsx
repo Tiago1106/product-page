@@ -40,7 +40,7 @@ export function Shipping() {
     setError(null);
 
     try {
-      const res = await fetch(`https://viacep.com.br/ws/${cleanedCep}/json/`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_CEP}${cleanedCep}/json/`);
       const data = await res.json();
 
       if (data.erro) {
