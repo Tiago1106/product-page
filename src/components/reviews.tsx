@@ -17,7 +17,7 @@ interface ReviewsProsps {
   }
 }
 
-export default function Reviews({ reviews }: ReviewsProsps) {
+export function Reviews({ reviews }: ReviewsProsps) {
   return (
     <div className="flex flex-col gap-8 md:px-8 w-full max-w-6xl">
       <h2 className="text-2xl font-bold text-gray-900">Avaliação e Comentários</h2>

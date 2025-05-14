@@ -1,11 +1,12 @@
 "use client";
 
 // IMPORTS
-import { ShoppingCart, Heart, User } from "lucide-react";
+import { Heart, User } from "lucide-react";
 
 // COMPONENTS
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { CartSheet } from "@/components/cart-sheet";
 
 // MOCK CATEGORIES
 const categories = [
@@ -38,9 +39,7 @@ export function Header() {
         <Button variant="ghost" size="icon">
           <Heart className="h-5 w-5" />
         </Button>
-        <Button variant="ghost" size="icon">
-          <ShoppingCart className="h-5 w-5" />
-        </Button>
+        <CartSheet />
       </div>
     </header>
   );

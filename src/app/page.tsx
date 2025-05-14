@@ -2,21 +2,27 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+
 import { product } from "@/data/product-mock";
+
 import { ImagesProducts } from "@/components/images-products";
 import { PriceProduct } from "@/components/price-product";
 import { SelectSku } from "@/components/select-sku";
 import { SelectSize } from "@/components/select-size";
 import { AccordionDescription } from "@/components/accordion-description";
 import { Shipping } from "@/components/shipping";
-import Reviews from "@/components/reviews";
+import { Reviews } from "@/components/reviews";
+
 import { getValidSelectedVariant, saveSelectedVariant } from "@/lib/storeVariante";
+import { useCartStore } from "@/store/useCartStore";
 
 export default function ProductPage() {
   const [selectedVariantId, setSelectedVariantId] = useState<string | null>(null);
   const [selectedSizeId, setSelectedSizeId] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { addItem} = useCartStore();
 
   useEffect(() => {
     const stored = getValidSelectedVariant();
@@ -43,6 +49,17 @@ export default function ProductPage() {
   }, [selectedVariantId, selectedSizeId]);
 
   const currentVariant = product.variants.find(v => v.id === selectedVariantId)!;
+
+  const addToCart = () => {
+    addItem({
+      id: currentVariant.id,
+      title: product.title,
+      image: selectedImage || currentVariant.images[0],
+      sizeId: selectedSizeId,
+      quantity: 1,
+      price: product.discountPrice,
+    });
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -73,7 +90,7 @@ export default function ProductPage() {
             selectedSizeId={selectedSizeId}
           />
           <div className="flex flex-col">
-            <Button variant="default">Adicionar ao carrinho</Button>
+            <Button variant="default" onClick={addToCart}>Adicionar ao carrinho</Button>
           </div>
           <AccordionDescription description={product.description} />
           <Shipping />
