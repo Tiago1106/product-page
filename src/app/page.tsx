@@ -12,6 +12,7 @@ import { SelectSize } from "@/components/select-size";
 import { AccordionDescription } from "@/components/accordion-description";
 import { Shipping } from "@/components/shipping";
 import { StarRating } from "@/components/star-rating";
+import { CommentCard } from "@/components/comment-card";
 
 export default function ProductPage() {
   const [selectedVariantId, setSelectedVariantId] = useState(product.variants[0].id);
@@ -58,12 +59,21 @@ export default function ProductPage() {
       </div>
       <div className="flex flex-col gap-8 md:px-8 w-full max-w-6xl">
         <h2 className="text-2xl font-bold text-gray-900">Avaliação e Comentários</h2>
-        <div className="flex flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           <div className="flex flex-col gap-4 max-w-[600px]">
             <StarRating rating={product.reviews.rating} totalReviews={product.reviews.total} breakdown={product.reviews.breakdown} />
           </div>
-          <div className="flex flex-col gap-4 max-w-[457px]">
-            <StarRating rating={product.reviews.rating} totalReviews={product.reviews.total} breakdown={product.reviews.breakdown} />
+          <div className="flex flex-col md:flex-row md:overflow-x-auto gap-4">
+            {product.reviews.comments.map((comment, index) => (
+              <div className="flex-none md:w-[457px]" key={index}>
+                <CommentCard
+                  author={comment.author}
+                  date={comment.date}
+                  rating={comment.rating}
+                  content={comment.content}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

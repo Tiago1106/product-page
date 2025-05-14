@@ -5,7 +5,7 @@ export const product = {
   discountPrice: 694.99,
   description: "Confortável, durável e atemporal - não é à toa que ele é o número 1. Os detalhes recortados expõem um logo Swoosh em tecido premium e unidades Air em todo o comprimento no solado, revelando o Air Force 1 de uma nova maneira. A construção clássica dos anos 80 é combinada com detalhes ousados para estilo que acompanha se você está na quadra ou em movimento.",
   reviews: {
-    rating: 4.0,
+    rating: 4.1,
     breakdown: {
       1: 12,
       2: 4,
@@ -14,6 +14,32 @@ export const product = {
       5: 57,
     },
     total: 120,
+    comments: [
+      {
+        author: "Lucas Silva",
+        date: "2024-11-15",
+        rating: 5,
+        content: "Produto excelente, super confortável e bonito. Chegou antes do prazo!",
+      },
+      {
+        author: "Mariana Oliveira",
+        date: "2024-11-10",
+        rating: 4,
+        content: "Gostei bastante, mas achei a forma um pouco grande. Fora isso, tudo ótimo.",
+      },
+      {
+        author: "João Pedro",
+        date: "2024-11-05",
+        rating: 3,
+        content: "Qualidade boa, mas esperava mais pela descrição. O solado parece um pouco duro.",
+      },
+      {
+        author: "Ana Paula",
+        date: "2024-10-28",
+        rating: 5,
+        content: "Tênis maravilhoso, combina com tudo! Recomendo demais!",
+      }
+    ],
   },
   variants: [
     {
