@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💸 Pagina de Produto
 
-## Getting Started
+## 📄 Descrição
 
-First, run the development server:
+Uma página de produto desenvolvida com [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) e gerenciamento de estado com [Zustand](https://zustand-demo.pmnd.rs/). O projeto exibe os detalhes de um produto, variações (cores, tamanhos), avaliações e permite adicionar ao carrinho.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Acesse o Projeto
+
+Você pode acessar o projeto em produção através do link abaixo:
+
+🔗 [Pagina de Produto](https://product-page-five-ivory.vercel.app/)
+
+## 📸 Screenshot
+
+![Screenshot](./public/capture.png)
+
+## 🧪 Tecnologias Utilizadas
+
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [shadcn/ui](https://ui.shadcn.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Zustand](https://zustand-demo.pmnd.rs/) (para gerenciamento do carrinho)
+
+## Pré-requisitos
+
+Para rodar esse projeto localmente, você precisará de:
+
+- **Node.js**: [Versão mínima 14.x]
+- **Yarn** ou **NPM**: [Gerenciador de pacotes]
+
+## 🚀 Como rodar localmente
+
+1. Clone o repositório:
+```
+git clone https://github.com/Tiago1106/product-page.git
+cd product-page
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Adicione as variáveis de ambiente
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+// .env.local
+NEXT_PUBLIC_API_URL=https://viacep.com.br/ws/i
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
 
-## Learn More
+3. Instale as dependências:
+```
+yarn 
+ou 
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Rode o Projeto: 
+```
+yarn dev
+ou
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. Acesse: http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Estrutura de Pastas
+```
+├── public/                    # Arquivos públicos, como transactions.json
+├── src/
+│   ├── app/                   # Páginas e rotas da aplicação
+│   ├── lib/                   # Configurações de bibliotecas, funções de fetch e utilitários de integração
+│   ├── stores/                # Stores de estado global (Zustand, por exemplo)
+│   ├── types/                 # Tipagens
+│   └── helpers/               # funções utilitárias
+├── .env.local                 # Variáveis de ambiente (não versionado)
+├── package.json               # Dependências e scripts do projeto
+└── README.md                  # Documentação do projeto
+```
 
-## Deploy on Vercel
+## 📞 Contato
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Para dúvidas ou informações adicionais, entre em contato com:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Nome: Tiago Pinheiro
+- Email: tiagofreitasp00@gmail.com
+- GitHub: [Tiago1106](https://github.com/Tiago1106)
+- Linkedin: [Tiago Pinheiro](https://www.linkedin.com/in/tiagofp00/) 
+
+
+
