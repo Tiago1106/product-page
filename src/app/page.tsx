@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import useProductVariantStore from "@/store/productVariantStore";
 import { product } from "@/data/product-mock";
 
 import { ImagesProducts } from "@/components/images-products";
@@ -12,21 +11,14 @@ import { SelectSku } from "@/components/select-sku";
 import { SelectSize } from "@/components/select-size";
 import { AccordionDescription } from "@/components/accordion-description";
 import { Shipping } from "@/components/shipping";
-import { StarRating } from "@/components/star-rating";
-import { CommentCard } from "@/components/comment-card";
+import Reviews from "@/components/reviews";
 
 export default function ProductPage() {
-  const { selectedVariantId, selectedSizeId, selectedImage, setSelectedVariantId, setSelectedSizeId, setSelectedImage } = useProductVariantStore();
+  const [selectedVariantId, setSelectedVariantId] = useState<string>(product.variants[0].id);
+  const [selectedSizeId, setSelectedSizeId] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string>(product.variants[0].images[0]);
 
   const currentVariant = product.variants.find(v => v.id === selectedVariantId)!;
-
-  useEffect(() => {
-    if (currentVariant && currentVariant.images.length > 0) {
-      setSelectedImage(currentVariant.images[0]);
-      return
-    }
-    setSelectedImage(product.variants[0].images[0]);
-  }, [currentVariant, selectedImage, setSelectedImage]);
 
   return (
     <div className="flex flex-col items-center">
@@ -64,26 +56,8 @@ export default function ProductPage() {
           <Shipping />
         </div>
       </div>
-      <div className="flex flex-col gap-8 md:px-8 w-full max-w-6xl">
-        <h2 className="text-2xl font-bold text-gray-900">Avaliação e Comentários</h2>
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex flex-col gap-4 max-w-[600px]">
-            <StarRating rating={product.reviews.rating} totalReviews={product.reviews.total} breakdown={product.reviews.breakdown} />
-          </div>
-          <div className="flex flex-col md:flex-row md:overflow-x-auto gap-4">
-            {product.reviews.comments.map((comment, index) => (
-              <div className="flex-none md:w-[457px]" key={index}>
-                <CommentCard
-                  author={comment.author}
-                  date={comment.date}
-                  rating={comment.rating}
-                  content={comment.content}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+
+      <Reviews reviews={product.reviews} />
 
     </div>
   );
