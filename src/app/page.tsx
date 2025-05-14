@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
+import useProductVariantStore from "@/store/productVariantStore";
 import { product } from "@/data/product-mock";
 
 import { ImagesProducts } from "@/components/images-products";
@@ -15,11 +16,17 @@ import { StarRating } from "@/components/star-rating";
 import { CommentCard } from "@/components/comment-card";
 
 export default function ProductPage() {
-  const [selectedVariantId, setSelectedVariantId] = useState(product.variants[0].id);
-  const [selectedImage, setSelectedImage] = useState(product.variants[0].images[0]);
-  const [selectedSizeId, setSelectedSizeId] = useState<string | null>(null);
+  const { selectedVariantId, selectedSizeId, selectedImage, setSelectedVariantId, setSelectedSizeId, setSelectedImage } = useProductVariantStore();
 
   const currentVariant = product.variants.find(v => v.id === selectedVariantId)!;
+
+  useEffect(() => {
+    if (currentVariant && currentVariant.images.length > 0) {
+      setSelectedImage(currentVariant.images[0]);
+      return
+    }
+    setSelectedImage(product.variants[0].images[0]);
+  }, [currentVariant, selectedImage, setSelectedImage]);
 
   return (
     <div className="flex flex-col items-center">
