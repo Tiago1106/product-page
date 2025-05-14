@@ -11,10 +11,11 @@ interface ImagesProductsProps {
       label: string;
     }[];
   };
+  isLoading: boolean;
 }
 
-export function ImagesProducts({ selectedImage, setSelectedImage, currentVariant }: ImagesProductsProps) {
-  if (!currentVariant || !currentVariant.images || currentVariant.images.length === 0) {
+export function ImagesProducts({ selectedImage, setSelectedImage, currentVariant, isLoading }: ImagesProductsProps) {
+  if (isLoading) {
     return (
       <div className="flex flex-col gap-4">
         <Skeleton className="w-[600px] h-[600px] rounded-lg" />
