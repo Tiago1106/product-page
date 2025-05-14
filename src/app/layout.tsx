@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${inter.variable} antialiased`}>
         <Header />
-        <main className="mt-16 p-4">
+        <main className="mt-16 p-4 items-center">
           {children}
         </main>
       </body>

@@ -4,6 +4,17 @@ export const product = {
   originalPrice: 729.99,
   discountPrice: 694.99,
   description: "Confortável, durável e atemporal - não é à toa que ele é o número 1. Os detalhes recortados expõem um logo Swoosh em tecido premium e unidades Air em todo o comprimento no solado, revelando o Air Force 1 de uma nova maneira. A construção clássica dos anos 80 é combinada com detalhes ousados para estilo que acompanha se você está na quadra ou em movimento.",
+  reviews: {
+    rating: 4.0,
+    breakdown: {
+      1: 12,
+      2: 4,
+      3: 12,
+      4: 35,
+      5: 57,
+    },
+    total: 120,
+  },
   variants: [
     {
       id: "blue",
