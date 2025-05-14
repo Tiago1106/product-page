@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Minus, Plus, ShoppingCart, Trash } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 export function CartSheet() {
   const { items, removeItem, clearCart, updateQuantity } = useCartStore();
@@ -12,8 +13,9 @@ export function CartSheet() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost">
           <ShoppingCart className="h-5 w-5" />
+          <Badge variant="cart">{items.length}</Badge>
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full sm:w-[400px]">
