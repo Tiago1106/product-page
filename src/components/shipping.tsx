@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { z } from 'zod';
 
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardDescription, CardTitle } from './ui/card';
+
 import { formatCep } from '@/helpers/formatCep';
 
 interface Address {
@@ -22,11 +24,15 @@ export function Shipping() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const cepSchema = z.string().length(8, 'CEP deve ter 8 dígitos').regex(/^\d{8}$/, 'CEP deve ser numérico');
+
   const fetchAddress = async () => {
     const cleanedCep = cep.replace(/\D/g, '');
 
-    if (cleanedCep.length !== 8) {
-      setError('CEP inválido');
+    const validationResult = cepSchema.safeParse(cleanedCep);
+    
+    if (!validationResult.success) {
+      setError(validationResult.error.format()._errors[0]);
       setAddress(null);
       return;
     }
