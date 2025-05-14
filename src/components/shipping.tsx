@@ -22,11 +22,6 @@ export function Shipping() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formattedCep = formatCep(e.target.value);
-    setCep(formattedCep);
-  };
-
   const fetchAddress = async () => {
     const cleanedCep = cep.replace(/\D/g, '');
 
@@ -72,8 +67,8 @@ export function Shipping() {
             <Input
               id="cep"
               placeholder="00000-000"
-              value={cep}
-              onChange={handleCepChange}
+              value={formatCep(cep)}
+              onChange={(e) => setCep(e.target.value)}
               maxLength={9}
             />
             <Link href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">
