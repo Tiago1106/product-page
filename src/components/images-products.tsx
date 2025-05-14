@@ -1,16 +1,10 @@
 import Image from "next/image";
 import { Skeleton } from "@/components/ui/skeleton";
-
+import { Variant } from "@/types/product";
 interface ImagesProductsProps {
   selectedImage: string;
   setSelectedImage: (image: string) => void;
-  currentVariant: {
-    images: string[];
-    sizes: {
-      id: string;
-      label: string;
-    }[];
-  };
+  currentVariant: Variant;
   isLoading: boolean;
 }
 

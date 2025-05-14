@@ -1,20 +1,9 @@
+import { Review } from "@/types/product";
 import { CommentCard } from "./comment-card";
 import { StarRating } from "./star-rating";
 
 interface ReviewsProsps {
-  reviews: {
-    rating: number,
-    total: number,
-    breakdown: {
-      [key: number]: number;
-    }
-    comments: {
-      author: string,
-      date: string,
-      rating: number,
-      content: string
-    }[]
-  }
+  reviews: Review;
 }
 
 export function Reviews({ reviews }: ReviewsProsps) {

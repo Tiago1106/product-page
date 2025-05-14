@@ -1,22 +1,12 @@
 import { getFullSizeRangeFromVariants } from "@/helpers/getFullSizeRangeFromVariants";
 import { Button } from "./ui/button";
+import { Product } from "@/types/product";
 
 interface SelectSizeProps {
   selectedVariantId: string;
   setSelectedSizeId: (sizeId: string | null) => void;
   selectedSizeId: string | null;
-  product: {
-    variants: {
-      id: string;
-      color: string;
-      thumbnail: string;
-      images: string[];
-      sizes: {
-        id: string;
-        label: string;
-      }[];
-    }[];
-  };
+  product: Product;
 }
 
 export function SelectSize({ selectedVariantId, setSelectedSizeId, product, selectedSizeId }: SelectSizeProps) {

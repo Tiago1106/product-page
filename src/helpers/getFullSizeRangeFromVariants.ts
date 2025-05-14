@@ -1,13 +1,5 @@
-type Size = {
-  id: string;
-  label: string;
-};
-
-type Variant = {
-  color: string;
-  images: string[];
-  sizes: Size[];
-};
+import { Size } from "@/types/product";
+import { Variant } from "@/types/product";
 
 export const getFullSizeRangeFromVariants = (variants: Variant[]): Size[] => {
   const sizeNumbers = variants

@@ -1,12 +1,10 @@
 import { Progress } from "@/components/ui/progress";
 import { Star } from "lucide-react";
-
+import { Breakdown } from "@/types/product";
 interface StarRatingProps {
   rating: number;
   totalReviews: number;
-  breakdown: {
-    [key: number]: number;
-  };
+  breakdown: Breakdown;
 }
 
 export function StarRating({ rating, totalReviews, breakdown }: StarRatingProps) {

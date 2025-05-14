@@ -1,23 +1,13 @@
 import Image from "next/image";
 import { Skeleton } from "./ui/skeleton";
+import { Product } from "@/types/product";
 
 interface SelectSKUProps {
   selectedVariantId: string;
   setSelectedVariantId: (variantId: string) => void;
   setSelectedImage: (image: string) => void;
   setSelectedSizeId: (sizeId: string | null) => void;
-  product: {
-    variants: {
-      id: string;
-      color: string;
-      thumbnail: string;
-      images: string[];
-      sizes: {
-        id: string;
-        label: string;
-      }[];
-    }[];
-  };
+  product: Product;
   isLoading?: boolean;
 }
 
