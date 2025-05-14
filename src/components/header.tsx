@@ -9,10 +9,10 @@ import { Input } from "@/components/ui/input";
 
 // MOCK CATEGORIES
 const categories = [
-  { id: 1, name: "Todos" },
-  { id: 2, name: "Camisetas" },
-  { id: 3, name: "Calças" },
-  { id: 4, name: "Acessórios" },
+  { id: 1, name: "Nike" },
+  { id: 2, name: "Adidas" },
+  { id: 3, name: "Puma" },
+  { id: 4, name: "Converse" },
 ];
 
 export function Header() {
